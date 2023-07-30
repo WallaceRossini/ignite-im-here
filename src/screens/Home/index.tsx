@@ -1,26 +1,24 @@
-
-import { Text, View, TextInput, TouchableOpacity, FlatList, Alert} from 'react-native';
+import React, { useState } from 'react';
+import { Text, View, TextInput, TouchableOpacity, FlatList, Alert } from 'react-native';
 import { styles } from './styles';
 
 import { Participant } from '../../components/Participant'
 
 export function Home() {
-  const participants = [
-    'Wallace',
-    'Luiz',
-    'Neto',
-    'Thomas',
-    'Helber'
-  ]
+  const [participants, setParticipants] = useState<string[]>([])
+  const [participantName, setParticipantName] = useState<string>('')
 
   function handleParticipantAdd() {
-    if(participants.includes('Wallace')){
-      return Alert.alert('Participante existe','Já existe um participante na lista com esse nome!')
+    if (participants.includes(participantName)) {
+      return Alert.alert('Participante existe', 'Já existe um participante na lista com esse nome!')
     }
+
+    setParticipants(prevState => [...prevState, participantName])
+    setParticipantName('')
   }
 
   function handleParticipantRemove(name: string) {
-    Alert.alert('Remover',`Remover o participante ${name} ?`,[
+    Alert.alert('Remover', `Remover o participante ${name} ?`, [
       {
         text: 'Sim',
         onPress: () => Alert.alert('Deletado!')
@@ -47,6 +45,8 @@ export function Home() {
           style={styles.input}
           placeholder='Nome do participante'
           placeholderTextColor={'#6B6B6B'}
+          onChangeText={setParticipantName}
+          value={participantName}
         />
 
         <TouchableOpacity style={styles.button} onPress={handleParticipantAdd}>
@@ -55,10 +55,10 @@ export function Home() {
           </Text>
         </TouchableOpacity>
       </View>
-      <FlatList 
+      <FlatList
         data={participants}
-        keyExtractor={item => item }
-        renderItem={ ({item}) => (
+        keyExtractor={item => item}
+        renderItem={({ item }) => (
           <Participant name={item} onRemove={() => handleParticipantRemove(item)} />
         )}
         showsVerticalScrollIndicator={false}
