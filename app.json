@@ -9,7 +9,7 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "automatic",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -19,7 +19,14 @@
       "**/*"
     ],
     "ios": {
-      "bundleIdentifier": "com.rossiniwallace.imhere"
+      "bundleIdentifier": "com.rossiniwallace.imhere",
+      "splash": {
+        "image": "./assets/splash.png",
+        "resizeMode": "contain",
+        "backgroundColor": "#131016"
+      },
+      "icon": "./assets/icon.png",
+      "backgroundColor": "#131016"
     },
     "android": {
       "package": "com.rossiniwallace.imhere",
