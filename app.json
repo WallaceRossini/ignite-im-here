@@ -1,7 +1,11 @@
 {
   "expo": {
-    "name": "imhere",
-    "slug": "imhere",
+    "name": "Im Here",
+    "slug": "ImHere",
+    "platforms": [
+      "android",
+      "ios"
+    ],
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -9,22 +13,34 @@
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#131016"
     },
     "assetBundlePatterns": [
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "bundleIdentifier": "com.rossiniwallace.imhere"
     },
     "android": {
+      "package": "com.rossiniwallace.imhere",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#131016"
       }
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "c0652620-0eb1-4334-8155-35b8ff140121"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "sdkVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/c0652620-0eb1-4334-8155-35b8ff140121"
     }
   }
 }
